@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .title { color: #986911; font-size: 12px; font-weight: bold; }
+        .head { color: cadetblue; }
+        .text { color: #1e5254; font-size: 12px; }
+        table#content td { padding: 3px 2px !important; border-bottom: 1px solid #ececec; }
+        .text-muted { color: #838383; font-size: 13px; }
+    </style>
+</head>
+<body>
+<table style="margin-bottom: -18px">
+    <tr>
+        <td>
+            <img width="150" height="40" src="datano_transparent.png" alt="">
+        </td>
+    </tr>
+</table>
+<h3 style="text-align: center; margin-bottom: 3px; font-weight: bold" class="head">
+    <b>Data Transaction Receipt</b>
+</h3>
+<div style="text-align: center; font-size: 10px;">Generated from <b>Datano</b> on {{ "now"|date("d/m/Y H:i:s") }}</div>
+<div style="margin-top: 8px">
+    <table style="width: 100%" id="content">
+        <tbody>
+        <tr>
+            <td><div class="title">Data Amount</div></td>
+            <td></td><td></td>
+            <td><div class="text">NGN {{ transaction.data_amount|number_format(2) }}</div></td>
+        </tr>
+        <tr>
+            <td><div class="title">Phone Number</div></td>
+            <td></td><td></td>
+            <td><div class="text">{{ transaction.mobile_number }}</div></td>
+        </tr>
+        <tr>
+            <td><div class="title">Sender</div></td>
+            <td></td><td></td>
+            <td><div class="text">{{ transaction.full_name }}</div></td>
+        </tr>
+        <tr>
+            <td><div class="title">Reference</div></td>
+            <td></td><td></td>
+            <td><div class="text" style="overflow-wrap: anywhere">{{ transaction.reference }}</div></td>
+        </tr>
+        <tr>
+            <td><div class="title">Cost</div></td>
+            <td></td><td></td>
+            <td><div class="text">NGN {{ transaction.data_computed_price|number_format(2) }}</div></td>
+        </tr>
+        <tr>
+            <td><div class="title">Status</div></td>
+            <td></td><td></td>
+            <td><div class="text">{{ transaction.status|upper }}</div></td>
+        </tr>
+        <tr>
+            <td><div class="title">Timestamp</div></td>
+            <td></td><td></td>
+            <td><div class="text">{{ transaction.created_at|date("d/m/Y H:i:s") }}</div></td>
+        </tr>
+        </tbody>
+    </table>
+    <table style="width: 100%; margin-top: -3px">
+        <tbody>
+        <tr>
+            <td>
+                <div style="margin-top: 10px" class="text-muted">
+                    If you have any questions, complaints or suggestions please email us at <b>support@datano.ng</b>
+                </div>
+                <div style="margin-top: 15px" class="text-muted">
+                    Data Airtime Bundles at https://datano.ng
+                </div>
+            </td>
+            <td>
+                <div style="float: right;">
+                    <img src="{{ qrcode_b64 }}" alt="{{ verification_url }}">
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

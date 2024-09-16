@@ -1,0 +1,22 @@
+{
+    "name": "quarkaxis/receipt_template",
+    "description": "App for generating a airtime and data receipt",
+    "type": "project",
+    "require": {
+        "twig/twig": "^3.14",
+        "dompdf/dompdf": "^3.0"
+    },
+    "license": "free",
+    "autoload": {
+        "psr-4": {
+            "Quarkaxis\\ReceiptTemplate\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Hkweb20",
+            "email": "Hkstudiotv@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
